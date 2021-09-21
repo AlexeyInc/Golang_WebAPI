@@ -1,0 +1,14 @@
+psql -U postgres -l (проверить все БД)
+
+migrate create -ext sql -dir migrations create_users (Создать миграции для таблицы)
+
+migrate -path migrations -database "postgres://localhost/restapi_dev?sslmode=disable" up (добавить измнения в табл)
+
+migrate -path migrations -database "postgres://localhost/restapi_dev?sslmode=disable" force 'NumOfMigration'
+
+psql -U postgres -d restapi_dev 
+restapi_dev=# \dt (прверить таблицы в БД 'restapi_dev')
+
+restapi_dev=# \d users (посмотреть таблицу 'users')
+
+restapi_dev=# \q (вызох)
